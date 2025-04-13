@@ -1,51 +1,108 @@
 <!---
 {
-  "depends_on": [],
+  "id": "f67933c1-9705-4f35-9b77-821767fa8135",
+  "depends_on": ["3ee0acd9-0f99-4423-b4f3-a0ca84a16422"],
   "author": "Stephan Bökelmann",
-  "first_used": "2025-03-17",
-  "keywords": ["learning", "exercises", "education", "practice"]
+  "first_used": "2025-04-13",
+  "keywords": ["HTML", "character entities", "vim", "special characters", "escaping"]
 }
 --->
 
-# Learning Through Exercises
+# Using Character Entities in HTML
 
-## Introduction
-Learning by doing is one of the most effective methods to acquire new knowledge and skills. Rather than passively consuming information, actively engaging in problem-solving fosters deeper understanding and long-term retention. By working through structured exercises, students can grasp complex concepts in a more intuitive and applicable way. This approach is particularly beneficial in technical fields like programming, mathematics, and engineering.
+> In this exercise you will learn how to use HTML character entities to display special symbols that cannot be typed directly or would otherwise be interpreted as HTML code. Furthermore we will explore how escaping characters is essential for writing clean, readable, and accurate HTML content.
+
+### Introduction
+
+In HTML, certain characters are reserved for specific syntactic purposes. For example, the less-than sign `<` is used to open tags, and the ampersand `&` begins character references. If you try to write these directly in an HTML document, the browser may interpret them as part of the code rather than as literal text.
+
+To solve this problem, HTML provides *character entities*—special sequences that begin with `&` and end with `;`—to safely represent these symbols in text. For example, `&lt;` renders `<`, `&gt;` renders `>`, and `&amp;` renders `&`.
+
+Character entities also allow you to insert special symbols like `©`, `€`, and `✓` that might not be available directly on your keyboard. This capability is crucial when writing content that includes legal symbols, non-ASCII text, or code snippets.
+
+Mastering the use of character entities improves the quality of your HTML and ensures consistent rendering across browsers and devices.
 
 ### Further Readings and Other Sources
-- [The Importance of Practice in Learning](https://www.sciencedirect.com/science/article/pii/S036013151300062X)
-- "The Art of Learning" by Josh Waitzkin
-- [How to Learn Effectively: 5 Key Strategies](https://www.edutopia.org/article/5-research-backed-learning-strategies)
+
+- [MDN Web Docs: HTML character references](https://developer.mozilla.org/en-US/docs/Glossary/Entity)
+- [W3Schools: HTML Entities](https://www.w3schools.com/html/html_entities.asp)
+- [HTML Entity List](https://dev.w3.org/html5/html-author/charref)
+
+---
 
 ## Tasks
-1. **Write a Summary**: Summarize the concept of "learning by doing" in 3-5 sentences.
-2. **Example Identification**: List three examples from your own experience where learning through exercises helped you understand a topic better.
-3. **Create an Exercise**: Design a simple exercise for a topic of your choice that someone else could use to practice.
-4. **Follow an Exercise**: Find an online tutorial that includes exercises and complete at least two of them.
-5. **Modify an Existing Exercise**: Take a basic problem from a textbook or online course and modify it to make it slightly more challenging.
-6. **Pair Learning**: Explain a concept to a partner and guide them through an exercise without giving direct answers.
-7. **Review Mistakes**: Look at an exercise you've previously completed incorrectly. Identify why the mistake happened and how to prevent it in the future.
-8. **Time Challenge**: Set a timer for 10 minutes and try to solve as many simple exercises as possible on a given topic.
-9. **Self-Assessment**: Create a checklist to evaluate your own performance in completing exercises effectively.
-10. **Reflect on Progress**: Write a short paragraph on how this structured approach to exercises has influenced your learning.
 
-<details>
-  <summary>Tip for Task 5</summary>
-  Try making small adjustments first, such as increasing the difficulty slightly or adding an extra constraint.
-</details>
+### Task 1: Create an HTML File with Text That Uses Special Characters
+
+This task shows what happens when special characters are not escaped properly.
+
+1. Open a new HTML file:
+   ```sh
+   vim entities_demo.html
+   ```
+
+2. Start with this basic structure:
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>HTML Entities Demo</title>
+   </head>
+   <body>
+       <p>This is 5 < 10 and 10 > 5.</p>
+       <p>Use & in HTML & programming.</p>
+   </body>
+   </html>
+   ```
+
+3. Save and open the file in your browser. You'll likely see issues with how the symbols display.
+
+### Task 2: Fix the Text Using Character Entities
+
+Now you’ll replace problematic characters with their correct HTML entities.
+
+1. Reopen the file in vim:
+   ```sh
+   vim entities_demo.html
+   ```
+
+2. Modify the `<body>` content like so:
+   ```html
+   <body>
+       <p>This is 5 &lt; 10 and 10 &gt; 5.</p>
+       <p>Use &amp; in HTML &amp; programming.</p>
+   </body>
+   ```
+
+3. Save and reload the page. You should now see the characters rendered correctly.
+
+### Task 3: Add Special Symbols Using Named Entities
+
+In this task, you will add a few common symbols using named character entities.
+
+1. Still in the same file, add the following lines below your paragraphs:
+   ```html
+   <p>Copyright &copy; 2025</p>
+   <p>Price: 50 &euro;</p>
+   <p>Success: &#10004;</p>
+   ```
+
+2. Save and open the file in your browser again.
+
+You should see the © symbol, the euro sign, and a checkmark.
+
+---
 
 ## Questions
-1. What are the main benefits of learning through exercises compared to passive learning?
-2. How do exercises improve long-term retention?
-3. Can you think of a subject where learning through exercises might be less effective? Why?
-4. What role does feedback play in learning through exercises?
-5. How can self-designed exercises improve understanding?
-6. Why is it beneficial to review past mistakes in exercises?
-7. How does explaining a concept to someone else reinforce your own understanding?
-8. What strategies can you use to stay motivated when practicing with exercises?
-9. How can timed challenges contribute to learning efficiency?
-10. How do exercises help bridge the gap between theory and practical application?
+
+1. Why do `<` and `&` cause problems when written directly in HTML?
+2. What is the difference between a named character entity (e.g., `&copy;`) and a numeric one (e.g., `&#169;`)?
+3. Find and add one more character entity to your page. What does it represent?
+4. What would happen if you wrote `&copy` (without the semicolon)?
+5. Why are character entities important for accessibility and internationalization?
+
+---
 
 ## Advice
-Practice consistently and seek out diverse exercises that challenge different aspects of a topic. Combine exercises with reflection and feedback to maximize your learning efficiency. Don't hesitate to adapt exercises to fit your own needs and ensure that you're actively engaging with the material, rather than just going through the motions.
 
+Character entities are essential tools for anyone writing HTML. They allow you to safely include code-like content and symbols that otherwise wouldn’t be possible to display properly. Whenever you see weird rendering in your HTML output, especially involving `<`, `>`, or `&`, your first move should be to check whether an entity is needed. Keep a reference list handy, and over time, you’ll remember the most common ones like `&lt;`, `&gt;`, and `&amp;` by heart. Practice using both named and numeric forms—they’re both useful, especially when dealing with unique or Unicode-specific characters.
