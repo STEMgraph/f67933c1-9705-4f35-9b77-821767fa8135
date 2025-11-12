@@ -1,6 +1,7 @@
 <!---
 {
   "id": "f67933c1-9705-4f35-9b77-821767fa8135",
+  "teaches": "Using Character Entities in HTML",
   "depends_on": ["3ee0acd9-0f99-4423-b4f3-a0ca84a16422"],
   "author": "Stephan Bökelmann",
   "first_used": "2025-04-13",
